@@ -1,9 +1,16 @@
-import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import Link from 'next/link';
 
 const links = [
-  { name: "accordion", href: "accordion" },
-  { name: "alert", href: "alert" },
-];
+  { name: 'accordion', href: 'accordion' },
+  { name: 'alert', href: 'alert' },
+  { name: 'button', href: 'button' },
+  { name: 'alert-dialog', href: 'alert-dialog' },
+  { name: 'dialog', href: 'dialog' },
+  { name: 'badge', href: 'badge' },
+  { name: 'calendar', href: 'calendar' },
+  { name: 'avatar', href: 'avatar' },
+].sort((a, b) => a.name.localeCompare(b.name));
 
 export default function DashboardLayout({
   children,
@@ -84,15 +91,21 @@ export default function DashboardLayout({
                   ></line>
                 </svg>
                 <span className="self-center whitespace-nowrap ml-2">
-                  {" "}
+                  {' '}
                   Shadcn/ui
                 </span>
               </a>
             </div>
             <div className="flex items-center">
               {/* User Avatar */}
-              <div className="bg-blue-500 text-white p-2 rounded-full w-12 h-12 flex items-center justify-center">
-                GR
+              <div className="rounded-full w-12 h-12 flex items-center justify-center">
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/gerodrig.png"
+                    alt="@gerodrig"
+                  />
+                  <AvatarFallback>GR</AvatarFallback>
+                </Avatar>
               </div>
             </div>
           </div>
@@ -253,7 +266,7 @@ export default function DashboardLayout({
             </div>
           </footer>
           <p className="text-center text-sm text-gray-500 my-10">
-            &copy; 2019-{new Date().getFullYear()}{" "}
+            &copy; 2019-{new Date().getFullYear()}{' '}
             <a href="#" className="hover:underline" target="_blank">
               Themesberg
             </a>
